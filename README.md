@@ -11,7 +11,7 @@ bash <(curl -s https://raw.githubusercontent.com/imutkarsht/express-ts-generator
 
 1. Run in PowerShell:
 ```powershell
-irm https://raw.githubusercontent.com/your-username/express-ts-generator/main/install.bat -OutFile install.bat; .\install.bat
+irm https://raw.githubusercontent.com/imutkarsht/express-ts-generator/main/install.bat -OutFile install.bat; .\install.bat
 ```
 
 ```cmd
