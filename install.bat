@@ -1,20 +1,21 @@
 @echo off
-echo Installing Express-TS Generator...
+echo [1/3] Installing Express-TS Generator...
 
 :: Set target directory
-set TARGET_DIR=%USERPROFILE%\bin
+set TARGET_DIR=%USERPROFILE%\AppData\Local\express-ts-generator
 if not exist "%TARGET_DIR%" (
   mkdir "%TARGET_DIR%"
-  setx PATH "%PATH%;%TARGET_DIR%"
-  echo Added %TARGET_DIR% to your PATH
 )
 
 :: Download script
-echo Downloading generator...
-powershell -Command "(New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/imutkarsht/express-ts-generator/main/create-express-app.sh', '%TARGET_DIR%\create-express-app')"
+echo [2/3] Downloading generator...
+powershell -Command "(New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/imutkarsht/express-ts-generator/main/create-express-app.bat', '%TARGET_DIR%\create-express-app.bat')"
 
-:: Make executable (Windows doesn't need chmod)
+:: Add to PATH
+echo [3/3] Configuring PATH...
+setx PATH "%PATH%;%TARGET_DIR%" > nul
+
 echo Installation complete!
 echo.
-echo Run: create-express-app to start a new project
-echo Note: You may need to restart your command prompt
+echo Please CLOSE and REOPEN your command prompt
+echo Then run: create-express-app
